@@ -138,4 +138,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
         * Example 1: `golangci-lint run cmd/...`
         * Example 2: `golangci-lint run pkg/...`
 
+* using `go-modules` WITH tag
+  * Once you finished added updates in this `go-modules`, please finalize the work by adding a new tag
+  * create new tag:
+      ```
+      git tag -a <YOUR-TARGET-VERSION>
+      ```
+      * for example:
+        ```shell
+        git tag -a v0.0.3 -m "add `licence_revoked` field in `identities` storage module"
+        ```
+  * add tag to the remote:
+      ```
+      git push --tags
+
+
+* Preparing the `go.mod` and `go.sum` ([ref](https://golangbyexample.com/go-mod-sum-module/))
+    * Init: `go mod init github.com/satumedishub/go-modules`
+    * Tidy up: `go mod tidy`
+
+* In case we had created a new tag, but we want to re-install the corresponding package with the latest version. We need to delete the old one from our local repository. Here is the command:
+    ```
+    sudo rm -fr $(go env GOPATH)/pkg/mod/github.com/satumedishub/'go-modules@v0.0.2'/
+    ```
+    * where `v0.0.2` is the version we want to remove
+
 <p> Copyright &copy; 2022 Private use in within the SatuMedis Development Team. All Rights Reserved.</p>
