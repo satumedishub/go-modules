@@ -35,6 +35,15 @@ const (
 	// BadRequest is an application error to represent bad request
 	BadRequest = 3001
 
+	// InvalidLimitValue is an application error to represent bad request due to wrong limit value
+	InvalidLimitValue = 3002
+
+	// InvalidOffsetValue is an application error to represent bad request due to wrong offset value
+	InvalidOffsetValue = 3003
+
+	// InvalidURLParameters is an application error to represent bad request due to invalid URL parameter values
+	InvalidURLParameters = 3004
+
 	// CreateDataFailed is an application error to represent that create process failed
 	CreateDataFailed = 4001
 
@@ -54,7 +63,10 @@ var responseText = map[int]string{
 	InputValidationError: "got input validation error",
 	UnauthorizedAccess:   "identity is unauthorized to access this API",
 
-	BadRequest: "bad request",
+	BadRequest:           "bad request",
+	InvalidLimitValue:    "invalid limit value",
+	InvalidOffsetValue:   "invalid offset value",
+	InvalidURLParameters: "failed to extract URL parameters",
 
 	CreateDataFailed: "insert process failed",
 	UpdateDataFailed: "update process failed",
